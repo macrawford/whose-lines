@@ -8,7 +8,6 @@ class App extends React.Component {
   render() {
     return(
       <div>
-        <div>React Working</div>
         <Games/>
       </div>
     )
@@ -16,3 +15,9 @@ class App extends React.Component {
 };
 
 export default App;
+
+/* Development Flow:
+
+Just display the
+
+*/

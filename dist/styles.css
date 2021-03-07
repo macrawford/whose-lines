@@ -1,4 +1,11 @@
 .game {
   background-color: green;
   border-style: solid;
+  margin-bottom: 4px;
+
+};
+.results {
+  background-color: red;
+  border-style: solid;
+  margin-bottom: 4px;
 }
