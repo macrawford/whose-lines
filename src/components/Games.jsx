@@ -48,6 +48,7 @@ class Games extends React.Component {
             <div>{game.teams[0]} at {game.teams[1]}</div>
             {game.sites[0].odds.spreads.points[0] <= 0 ? <div>{game.teams[0]} ({game.sites[0].odds.spreads.points[0]})</div> : <div>{game.teams[1]} ({game.sites[0].odds.spreads.points[1]})</div>}
           </div>
+          // odds are by caesar or william hill (make sure you select that one)
         )
       })
       // There's an error with having two different map functions returning things, I think
