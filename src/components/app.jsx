@@ -1,5 +1,6 @@
 import React from 'react';
 import Games from './Games.jsx';
+import Selection from './Selection.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class App extends React.Component {
   render() {
     return(
       <div>
+        <Selection/>
         <Games/>
       </div>
     )
