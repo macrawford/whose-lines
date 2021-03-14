@@ -5,7 +5,6 @@ function Selection() {
   const [TomD, setTomD] = useState(false);
   const [TomM, setTomM] = useState(false);
   const [Matt, setMatt] = useState(false);
-  const [currentUser, setCurrentUser] = useState('');
 
   function handleSubmit() {
     event.preventDefault();
