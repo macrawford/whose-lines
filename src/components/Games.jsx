@@ -49,33 +49,89 @@ class Games extends React.Component {
   }
   render() {
     return (
-      this.state.games.map((game) => {
-        return (
-          <div className="game">
-            <div>{game.teams[0]} at {game.teams[1]}</div>
-            {game.sites.map((site) => {
-              if (site['site_key'] === 'caesars') {
-                console.log('okay den')
-                // Need to incorporate this into the other map function to take the spread only of caesar's
-              }
-            })}
-            {game.sites[0].odds.spreads.points[0] <= 0 ? <div>{game.teams[0]} ({game.sites[0].odds.spreads.points[0]})</div> : <div>{game.teams[1]} ({game.sites[0].odds.spreads.points[1]})</div>}
-          </div>
-          // odds are by caesars(make sure you select that one)
-        )
+      this.state.results.map((game) => {
+        if (game.period === 0) {
+          return(
+            <div className="game">
+              <div>{game.visitor_team.full_name} at {game.home_team.full_name}</div>
+              <div>{game.status}</div>
+              {this.state.games.map((odds) => {
+                if (odds.home_team === game.home_team.full_name) {
+                  return (
+                    odds.sites.map((sites) => {
+                      if (sites.site_key === 'williamhill_us') {
+                        return (
+                          <div>
+                            {sites.odds.spreads.points[0] <= 0 ? <div>{odds.teams[0]} ({sites.odds.spreads.points[0]})</div> : <div>{odds.teams[1]} ({sites.odds.spreads.points[1]})</div>}
+                          </div>
+                        )
+                      }
+                    })
+                  )
+                }
+              })}
+            </div>
+          )
+        } else {
+          return (
+            <div className="game">
+              <div>
+                {game.visitor_team.full_name} {game.visitor_team_score}, {game.home_team.full_name} {game.home_team_score}
+              </div>
+              <div>
+                {game.status} {game.time}
+              </div>
+            </div>
+          )
+        }
       })
-      // There's an error with having two different map functions returning things, I think
-      // Goal of below was to display current scores
-
-      // this.state.results.map((result) => {
-      //   return (
-      //     <div className="results">
-      //       <div>{result.home_team.full_name}</div>
-      //     </div>
-      //   )
-      // })
     )
   }
+
+
+  //   render() {
+  //   return (
+  //     this.state.results.map((matchup) => {
+  //       return (
+  //         this.state.games.map((game) => {
+  //           if (matchup['home_team']['full_name']) {
+  //             return (
+  //               <div className="game">
+  //                 <div>{game.teams[0]} at {game.teams[1]}</div>
+  //                 {game.sites.map((site) => {
+  //                   if (site['site_key'] === 'williamhill_us') {
+  //                     // on the chance that william hill hasn't posted odds for a game, nothing will show up...
+  //                     return (
+  //                       <div>
+  //                         {site.odds.spreads.points[0] <= 0 ? <div>{game.teams[0]} ({site.odds.spreads.points[0]})</div> : <div>{game.teams[1]} ({site.odds.spreads.points[1]})</div>}
+  //                       </div>
+  //                     )
+  //                     // Need to incorporate this into the other map function to take the spread only of caesar's
+  //                   }
+  //                 })}
+
+  //                 {/* {game.sites[0].odds.spreads.points[0] <= 0 ? <div>{game.teams[0]}({game.sites[0].odds.spreads.points[0]})</div> : <div>{game.teams[1]}({game.sites[0].odds.spreads.points[1]})</div>} */}
+
+  //               </div>
+  //               // odds are by william hill (make sure you select that one)
+  //             )
+  //           }
+  //         })
+  //       )
+  //     }
+  //   )
+  //     // There's an error with having two different map functions returning things, I think
+  //     // Goal of below was to display current scores
+
+  //     // this.state.results.map((result) => {
+  //     //   return (
+  //     //     <div className="results">
+  //     //       <div>{result.home_team.full_name}</div>
+  //     //     </div>
+  //     //   )
+  //     // })
+  //   )
+  // }
 }
 
 export default Games;
