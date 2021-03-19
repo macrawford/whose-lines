@@ -16,6 +16,9 @@ var date = new Date;
   API Limits:
   Ball Don't Lie: 60 requests per minute
   Odds API: 500 requests per month - might become a bottleneck - but I could just have it grab the odds at a certain time of day and then keep those odds until game time- then it will switch to scores anyways
+
+  Possible Errors:
+  Full names of teams may not exactly line up between Ball Don't Lie and Odds API
 */
 
 class Games extends React.Component {
