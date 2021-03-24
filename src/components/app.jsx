@@ -21,7 +21,7 @@ class App extends React.Component {
       <div>
         <Selection selectUser={this.selectUser}/>
         {this.state.user !== null ? <div>Picking for {this.state.user}</div> : <div>Select a user!</div>}
-        <Games/>
+        <Games user={this.state.user}/>
       </div>
     )
   }
@@ -34,6 +34,7 @@ export default App;
 Select your user name
 Once a user name is selected, you can make picks
 When you submit, it sends the user, the games and the spreads to the database
+
 It then displays that information on the page
 That person is no longer eligible to be selected
 Once a game starts, it is locked and can't be picked any longer (if no selections made, automatically pick the favorite)

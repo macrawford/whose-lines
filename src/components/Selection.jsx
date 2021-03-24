@@ -5,6 +5,7 @@ class Selection extends React.Component {
   // const [TomD, setTomD] = useState(false);
   // const [TomM, setTomM] = useState(false);
   // const [Matt, setMatt] = useState(false);
+
   constructor(props) {
     super(props);
     this.state = {
@@ -99,11 +100,14 @@ class Selection extends React.Component {
           <label>Tom M</label>
           <input type="radio" name="name" id="Matt" value="Matt" onChange={() => this.handleChangeMatt()}></input>
           <label>Matt</label>
-          <button onClick={() => this.handleSubmit()}>Submit</button>
+          <button onClick={() => this.handleSubmit()}>Select User</button>
         </form>
       </div>
     )
   }
 };
+
+// Scoreboard will look at the database, and either tally up the results for the whole season
+// OR... it will have a
 
 export default Selection;
