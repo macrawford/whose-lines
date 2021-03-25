@@ -58,8 +58,10 @@ class Games extends React.Component {
       })
   }
   makePick(team, spread) {
-    console.log('team: ', team)
-    console.log('spread: ', spread)
+    if (this.props.user !== null) {
+      console.log('team: ', team);
+      console.log('spread: ', spread);
+    };
   }
   render() {
     return (

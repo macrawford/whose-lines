@@ -5,5 +5,5 @@ const PORT = 3000 || process.env.PORT;
 app.use(express.static('dist'));
 
 app.listen(PORT, () => {
-  console.log(`Server listening on port: ${PORT}`);
+  console.log(`Server listening on Port: ${PORT}`);
 })
